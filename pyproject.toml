@@ -29,7 +29,7 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/botheredtodd/dhcpy.git"
-#Documentation = "https://readthedocs.org"
+Documentation = "https://botheredtodd.github.io/dhcpy/"
 Repository = "https://github.com/botheredtodd/dhcpy.git"
 "Bug Tracker" = "https://github.com/botheredtodd/dhcpy/issues"
 #Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
