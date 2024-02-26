@@ -14,6 +14,10 @@ class subnet_type(Enum):
 
 class Pool(object):
     def __init__(self, ip_range=None, subnet=None):
+        """Initialize a pool object
+        :param ip_range: A string in the format "Start-End"
+        :param subnet: A string in the format "Network/CIDR" or Network/Netmask" or an ipaddress.IPNetwork object
+        """
         if ip_range is not None:
             try:
                 low, high = ip_range.split("-")
@@ -38,10 +42,12 @@ class Pool(object):
             else:
                 raise ValueError("Invalid subnet")
     def __dict__(self):
+        """Return a dictionary representation of the pool, for making JSON in the format KEA expects"""
         return {"pool": self.ip_range}
 
     @property
     def ip_range(self):
+        """Return the IP range as a string in the format "Start-End" """
         if self.subnet is None:
             return None
         else:
@@ -49,6 +55,7 @@ class Pool(object):
 
     @ip_range.setter
     def ip_range(self, ip_range):
+        """Set the IP range from a string in the format "Start-End" """
         try:
             low, high = ip_range.split("-")
             self.subnet = ipaddress.ip_network(low, high)
@@ -60,17 +67,23 @@ class Pool(object):
 
     @ip_range.deleter
     def ip_range(self):
+        """Delete the IP range. Don't do this, becuae it doesn't do anything."""
         print("yeah, let's not do this, okay?")
 
 
 class Subnet(object):
     def __init__(self):
         self.subnet_type = subnet_type.none
+        """The type of subnet, subnet_type.v4, subnet_type.v6, or subnet_type.pd"""
         self.pools = []
+        """A list of Pool objects"""
         self.name = ""
+        """The name of the subnet"""
         self.id = -1
+        """The ID of the subnet. This must be unique on the server, but the only test so far is that it is not negative"""
 
     def __dict__(self):
+        """Return a dictionary representation of the subnet, for making JSON in the format KEA expects"""
         if self.id >= 0:
             if len(self.pools) > 0:
                 if self.subnet_type == subnet_type.none:
