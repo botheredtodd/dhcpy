@@ -6,7 +6,7 @@
 
   <head>
     
-    <title>dhcpy.subnet.Subnet</title>
+    <title>dhcpy.subnet.Pool</title>
     <meta name="generator" content="pydoctor 23.9.1"> 
         
     </meta>
@@ -142,7 +142,7 @@
 
       <div class="thingTitle">
         <span>Class</span>
-        <code class="thisobject"><a href="dhcpy.subnet.Subnet.html" class="internal-link" title="This class"><wbr></wbr>Subnet</a></code> 
+        <code class="thisobject"><a href="dhcpy.subnet.Pool.html" class="internal-link" title="This class"><wbr></wbr>Pool</a></code> 
       </div>
       
       <div>
@@ -163,7 +163,7 @@
         
 
         
-            <div class="itemName"><code><a href="#__dict__" class="internal-link" title="dhcpy.subnet.Subnet.__dict__">__dict__</a></code>
+            <div class="itemName"><code><a href="#__dict__" class="internal-link" title="dhcpy.subnet.Pool.__dict__">__dict__</a></code>
             </div>
         
 
@@ -173,7 +173,27 @@
         
 
         
-            <div class="itemName"><code><a href="#__init__" class="internal-link" title="dhcpy.subnet.Subnet.__init__">__init__</a></code>
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="dhcpy.subnet.Pool.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ip_range.deleter" class="internal-link" title="dhcpy.subnet.Pool.ip_range.deleter">ip<wbr></wbr>_range<wbr></wbr>.deleter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#ip_range.setter" class="internal-link" title="dhcpy.subnet.Pool.ip_range.setter">ip<wbr></wbr>_range<wbr></wbr>.setter</a></code>
             </div>
         
 
@@ -192,7 +212,7 @@
         
 
         
-            <div class="itemName"><code><a href="#id" class="internal-link" title="dhcpy.subnet.Subnet.id">id</a></code>
+            <div class="itemName"><code><a href="#subnet" class="internal-link" title="dhcpy.subnet.Pool.subnet">subnet</a></code>
             </div>
         
 
@@ -202,7 +222,7 @@
         
 
         
-            <div class="itemName"><code><a href="#name" class="internal-link" title="dhcpy.subnet.Subnet.name">name</a></code>
+            <div class="itemName"><code><a href="#subnet_type" class="internal-link" title="dhcpy.subnet.Pool.subnet_type">subnet<wbr></wbr>_type</a></code>
             </div>
         
 
@@ -212,17 +232,7 @@
         
 
         
-            <div class="itemName"><code><a href="#pools" class="internal-link" title="dhcpy.subnet.Subnet.pools">pools</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#subnet_type" class="internal-link" title="dhcpy.subnet.Subnet.subnet_type">subnet<wbr></wbr>_type</a></code>
+            <div class="itemName"><code><a href="#ip_range" class="internal-link" title="dhcpy.subnet.Pool.ip_range">ip<wbr></wbr>_range</a></code>
             </div>
         
 
@@ -249,7 +259,7 @@
         <div class="childrenKindTitle">Classes</div>
         <ul>
     
-    <li class="">
+    <li class=" thisobject">
         
         
         
@@ -259,7 +269,7 @@
             </div>
         
 
-    </li><li class=" thisobject">
+    </li><li class="">
         
         
         
@@ -313,7 +323,7 @@
         
 
         <div class="page-header">
-          <h1 class="class"><code><code><a href="index.html" class="internal-link">dhcpy</a></code><wbr></wbr>.<code><a href="dhcpy.subnet.html" class="internal-link" title="dhcpy.subnet">subnet</a></code><wbr></wbr>.<code><a href="dhcpy.subnet.Subnet.html" class="internal-link" title="dhcpy.subnet.Subnet">Subnet</a></code></code></h1>
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">dhcpy</a></code><wbr></wbr>.<code><a href="dhcpy.subnet.html" class="internal-link" title="dhcpy.subnet">subnet</a></code><wbr></wbr>.<code><a href="dhcpy.subnet.Pool.html" class="internal-link" title="dhcpy.subnet.Pool">Pool</a></code></code></h1>
           <div id="showPrivate">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -324,8 +334,8 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Subnet</span>(object):</code></p>
-          <p><a href="classIndex.html#dhcpy.subnet.Subnet">View In Hierarchy</a></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Pool</span>(object):</code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="dhcpy.subnet.Pool.__init__">Pool(ip_range, subnet)</a></code></p>
+          <p><a href="classIndex.html#dhcpy.subnet.Pool">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
@@ -333,38 +343,43 @@
         </div>
 
         <div id="splitTables">
-          <table class="children sortable" id="id7">
+          <table class="children sortable" id="id6">
   
   
   <tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__dict__" class="internal-link" title="dhcpy.subnet.Subnet.__dict__">__dict__</a></code></td>
+    <td><code><a href="#__dict__" class="internal-link" title="dhcpy.subnet.Pool.__dict__">__dict__</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="method">
     
     <td>Method</td>
-    <td><code><a href="#__init__" class="internal-link" title="dhcpy.subnet.Subnet.__init__">__init__</a></code></td>
+    <td><code><a href="#__init__" class="internal-link" title="dhcpy.subnet.Pool.__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ip_range.deleter" class="internal-link" title="dhcpy.subnet.Pool.ip_range.deleter">ip<wbr></wbr>_range<wbr></wbr>.deleter</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#ip_range.setter" class="internal-link" title="dhcpy.subnet.Pool.ip_range.setter">ip<wbr></wbr>_range<wbr></wbr>.setter</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#id" class="internal-link" title="dhcpy.subnet.Subnet.id">id</a></code></td>
+    <td><code><a href="#subnet" class="internal-link" title="dhcpy.subnet.Pool.subnet">subnet</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
-    <td><code><a href="#name" class="internal-link" title="dhcpy.subnet.Subnet.name">name</a></code></td>
+    <td><code><a href="#subnet_type" class="internal-link" title="dhcpy.subnet.Pool.subnet_type">subnet<wbr></wbr>_type</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="property">
     
-    <td>Instance Variable</td>
-    <td><code><a href="#pools" class="internal-link" title="dhcpy.subnet.Subnet.pools">pools</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="#subnet_type" class="internal-link" title="dhcpy.subnet.Subnet.subnet_type">subnet<wbr></wbr>_type</a></code></td>
+    <td>Property</td>
+    <td><code><a href="#ip_range" class="internal-link" title="dhcpy.subnet.Pool.ip_range">ip<wbr></wbr>_range</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -377,7 +392,7 @@
           <div class="basemethod">
   
   
-  <a name="dhcpy.subnet.Subnet.__dict__">
+  <a name="dhcpy.subnet.Pool.__dict__">
     
   </a>
   <a name="__dict__">
@@ -388,7 +403,7 @@
     
     <span class="py-keyword">def</span> <span class="py-defname">__dict__</span><span class="function-signature">(self)</span>:
     
-    <a class="headerLink" href="#__dict__" title="dhcpy.subnet.Subnet.__dict__">
+    <a class="headerLink" href="#__dict__" title="dhcpy.subnet.Pool.__dict__">
       
       
       ¶
@@ -401,7 +416,7 @@
 </div><div class="basemethod">
   
   
-  <a name="dhcpy.subnet.Subnet.__init__">
+  <a name="dhcpy.subnet.Pool.__init__">
     
   </a>
   <a name="__init__">
@@ -410,9 +425,57 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self)</span>:
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, ip_range=None, subnet=None)</span>:
     
-    <a class="headerLink" href="#__init__" title="dhcpy.subnet.Subnet.__init__">
+    <a class="headerLink" href="#__init__" title="dhcpy.subnet.Pool.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="dhcpy.subnet.Pool.ip_range.deleter">
+    
+  </a>
+  <a name="ip_range.deleter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="#ip_range.deleter" class="internal-link" title="dhcpy.subnet.Pool.ip_range.deleter">ip_range.deleter</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">ip_range</span><span class="function-signature">(self)</span>:
+    
+    <a class="headerLink" href="#ip_range.deleter" title="dhcpy.subnet.Pool.ip_range.deleter">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="dhcpy.subnet.Pool.ip_range.setter">
+    
+  </a>
+  <a name="ip_range.setter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @<a href="#ip_range.setter" class="internal-link" title="dhcpy.subnet.Pool.ip_range.setter">ip_range.setter</a><br />
+    <span class="py-keyword">def</span> <span class="py-defname">ip_range</span><span class="function-signature">(self, ip_range)</span>:
+    
+    <a class="headerLink" href="#ip_range.setter" title="dhcpy.subnet.Pool.ip_range.setter">
       
       
       ¶
@@ -425,17 +488,17 @@
 </div><div class="baseinstancevariable">
   
   
-  <a name="dhcpy.subnet.Subnet.id">
+  <a name="dhcpy.subnet.Pool.subnet">
     
   </a>
-  <a name="id">
+  <a name="subnet">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">id</span>: <code>int</code> =
+    <span class="py-defname">subnet</span> =
     
-    <a class="headerLink" href="#id" title="dhcpy.subnet.Subnet.id">
+    <a class="headerLink" href="#subnet" title="dhcpy.subnet.Pool.subnet">
       
       
       ¶
@@ -449,55 +512,7 @@
 </div><div class="baseinstancevariable">
   
   
-  <a name="dhcpy.subnet.Subnet.name">
-    
-  </a>
-  <a name="name">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">name</span>: <code>str</code> =
-    
-    <a class="headerLink" href="#name" title="dhcpy.subnet.Subnet.name">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="baseinstancevariable">
-  
-  
-  <a name="dhcpy.subnet.Subnet.pools">
-    
-  </a>
-  <a name="pools">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">pools</span>: <code>list</code> =
-    
-    <a class="headerLink" href="#pools" title="dhcpy.subnet.Subnet.pools">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="baseinstancevariable">
-  
-  
-  <a name="dhcpy.subnet.Subnet.subnet_type">
+  <a name="dhcpy.subnet.Pool.subnet_type">
     
   </a>
   <a name="subnet_type">
@@ -507,7 +522,31 @@
     
     <span class="py-defname">subnet_type</span> =
     
-    <a class="headerLink" href="#subnet_type" title="dhcpy.subnet.Subnet.subnet_type">
+    <a class="headerLink" href="#subnet_type" title="dhcpy.subnet.Pool.subnet_type">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseproperty">
+  
+  
+  <a name="dhcpy.subnet.Pool.ip_range">
+    
+  </a>
+  <a name="ip_range">
+    
+  </a>
+  <div class="functionHeader">
+    @property<br />
+    <span class="py-defname">ip_range</span> =
+    
+    <a class="headerLink" href="#ip_range" title="dhcpy.subnet.Pool.ip_range">
       
       
       ¶
@@ -530,7 +569,7 @@
   <div class="container">
     <a href="index.html">API Documentation</a> for dhcpy,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2024-02-26 09:06:07.
+    23.9.1 at 2024-02-26 09:36:12.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
