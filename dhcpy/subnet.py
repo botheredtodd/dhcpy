@@ -1,8 +1,11 @@
+"""KEA subnet pools"""
 from enum import Enum
 import ipaddress
 
 
 class subnet_type(Enum):
+    """Different types of subnets that KEA can handle. This is used to determine the type of pool to use and the
+    commands to run on the server."""
     none = None
     v4 = "subnet4"  # TODO: This is a guess
     v6 = "subnet6"
