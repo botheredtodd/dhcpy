@@ -38,6 +38,6 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_DHCPY_API_TOKEN }}
-    - name: Create Docs
-      run: |
-        pydoctor --make-html --html-output docs dhcpy
+#    - name: Create Docs
+#      run: |
+#        pydoctor --make-html --html-output docs dhcpy
