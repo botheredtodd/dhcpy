@@ -1,3 +1,5 @@
+import json
+
 import requests
 from server import Server
 from subnet import Pool, Subnet, subnet_type
@@ -18,7 +20,7 @@ def send_subent_to_server(server, subnet):
 
         r2 = requests.post(
             server.mgmt_ip6,
-            data=data,
+            data=json.dumps(data),
             headers=headers,
         )
         expected_length = r2.headers.get("Content-Length")
@@ -32,3 +34,4 @@ def send_subent_to_server(server, subnet):
                     )
                 )
         print(r2.content)
+        print(json.dumps(data, indent=4))
