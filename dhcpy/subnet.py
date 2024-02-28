@@ -52,7 +52,10 @@ class Pool(object):
             return None
         else:
             return f"{self.subnet.hosts()[0]}-{self.subnet.hosts()[-1]}"
-
+    @property
+    def network(self):
+        """Return the network of the subnet"""
+        return str(self.subnet)
     @ip_range.setter
     def ip_range(self, ip_range):
         """Set the IP range from a string in the format "Start-End" """
@@ -73,6 +76,7 @@ class Pool(object):
 
 class Subnet(object):
     def __init__(self):
+        """Initialize a subnet object, with empty strings and lists"""
         self.subnet_type = subnet_type.none
         """The type of subnet, subnet_type.v4, subnet_type.v6, or subnet_type.pd"""
         self.pools = []
@@ -88,11 +92,18 @@ class Subnet(object):
             if len(self.pools) > 0:
                 if self.subnet_type == subnet_type.none:
                     self.subnet_type = self.pools[0].subnet_type
+                if self.name is "":
+                    self.name = f"{self.pools[0].network}"
                 for pool in self.pools:
                     if pool.subnet_type != self.subnet_type:
-                        return {"id": int(self.id), "pool": self.pools}
-                    else:
                         raise ValueError("Pool type does not match subnet type")
+                rets = {}
+                rets["id"] = self.id
+                rets["subnet"] = self.name
+                rets["pools"] = []
+                for pool in self.pools:
+                    rets["pools"].append(pool.__dict__())
+                return rets
             else:
                 raise ValueError("No pools set")
 
