@@ -76,6 +76,7 @@ class Pool(object):
 
 class Subnet(object):
     def __init__(self):
+        """Initialize a subnet object, with empty strings and lists"""
         self.subnet_type = subnet_type.none
         """The type of subnet, subnet_type.v4, subnet_type.v6, or subnet_type.pd"""
         self.pools = []

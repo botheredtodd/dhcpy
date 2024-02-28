@@ -1,10 +1,16 @@
+"""Fucntions for sending commands to KEA server"""
 import json
-
 import requests
 from server import Server
 from subnet import Pool, Subnet, subnet_type
 
-def send_subent_to_server(server, subnet):
+def send_subnet_to_server(server, subnet):
+    """
+    Send a subnet to a KEA server
+    :param server: a server object with a management IP address and a list of interfaces
+    :param subnet: a subnet object
+    :return: No idea yet. But is should definitely return something
+    """
     headers = {
         "Content-Type": "application/json",
     }
