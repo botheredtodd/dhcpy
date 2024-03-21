@@ -2,6 +2,7 @@
 An object to store server information, like IP address, hostname, and interfaces
 """
 
+from dhcpy.sendToServer import get_config
 class Server(object):
     """
     A KEA server, with an IP address, hostname, and interfaces
@@ -21,3 +22,11 @@ class Server(object):
         """A list of interfaces on the server. These are the names used by KEA to identify the interfaces"""
         if interfaces is not None:
             self.interfaces = interfaces
+
+    def get_config(self, ssl=True):
+        """
+        Get the configuration of a server
+        :param server: a server object
+        :return: a dictionary of the server configuration
+        """
+        return get_config(self, ssl=ssl)

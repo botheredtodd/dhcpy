@@ -51,7 +51,9 @@ class Pool(object):
         if self.subnet is None:
             return None
         else:
-            return f"{self.subnet.hosts()[0]}-{self.subnet.hosts()[-1]}"
+            # exclude the network, default route, and broadcast addresses
+            return f"{self.subnet.network_address + 2}-{self.subnet.broadcast_address - 1}"
+
     @property
     def network(self):
         """Return the network of the subnet"""
