@@ -4,17 +4,17 @@ import json
 
 # Create a server object
 kea_server = Server(
-    mgmt_ip4="192.168.100.161") # ,
-    # hostname="kea1",
-    # interfaces=["eth0"])
+    mgmt_ip4="192.168.100.178",
+    hostname="kea0",
+    interfaces=["prod"])
 print("getting config")
-conf = kea_server.get_config(ssl=False)
+kea_server.get_config(ssl=False)
 
-# Print the configuration
-print(json.dumps(conf, indent=4))
+print(f"v4_socket: {kea_server.v4_socket}")
+print(f"v6_socket: {kea_server.v6_socket}")
 
 v6_conf = kea_server.get_v6_config(ssl=False)
-print(json.dumps(v6_conf, indent=4))
+# print(json.dumps(v6_conf, indent=4))
 
 # Create a subnet object
 # subnet = Subnet()

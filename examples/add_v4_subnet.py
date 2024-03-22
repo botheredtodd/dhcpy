@@ -13,8 +13,8 @@ kea_server = Server(
 kea_server.get_config(ssl=False)
 # Create a subnet object
 subnet = Subnet()
-pool = Pool(subnet=ipaddress.IPv6Network("2001:db8:1::/64"))
-subnet.subnet_type = subnet_type.v6
+pool = Pool(subnet=ipaddress.IPv4Network("192.168.99.0/24"))
+subnet.subnet_type = subnet_type.v4
 subnet.pools.append(pool)
 subnet.id = 55
 # print(json.dumps(subnet.__dict__(), indent=4))
@@ -22,8 +22,8 @@ subnet.id = 55
 bob = send_subnet_to_server(kea_server, subnet, ssl=False)
 print(bob)
 print(json.dumps(kea_server.save_config(ssl=False), indent=4))
-# bobbert = kea_server.get_v6_config(ssl=False)
-# print(json.dumps(bobbert, indent=4))
+bobbert = kea_server.get_v4_config(ssl=False)
+print(json.dumps(bobbert, indent=4))
 #
 # config = kea_server.get_config(ssl=False)
 # print(json.dumps(config, indent=4))

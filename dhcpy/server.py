@@ -1,16 +1,24 @@
 """
 An object to store server information, like IP address, hostname, and interfaces
 """
+import json
 
-from dhcpy.sendToServer import get_config, get_v6_config, save_config
+from dhcpy.sendToServer import get_config, get_v6_config, save_config, get_v4_config
+
+
 class Server(object):
     """
     A KEA server, with an IP address, hostname, and interfaces
     """
-    def __init__(self, mgmt_ip4= None, mgmt_ip6= None, hostname=None, interfaces=None):
+
+    def __init__(self, mgmt_ip4=None, mgmt_ip6=None, hostname=None, interfaces=None):
         self.mgmt_ip4 = mgmt_ip4
         """
         The IPv4 address used the manage the server. This is not neccessarily the IP address used by the DHCP service
+        """
+        self.v4_socket = "/tmp/kea4-ctrl-socket"
+        """
+        The control socket for the DHCP6 service. Set to the default value. You can change it if you need to.
         """
         self.mgmt_ip6 = mgmt_ip6
         """
@@ -18,7 +26,7 @@ class Server(object):
         """
         self.v6_socket = "/tmp/kea6-ctrl-socket"
         """
-        The control socket for the IPv6 service. This is the default value for the control socket. You can change it if you need to.
+        The control socket for the DHCP6 service. Set to the default value. You can change it if you need to.
         """
         self.hostname = hostname
         """The hostname of the server, if your into that whole DNS thing"""
@@ -29,23 +37,38 @@ class Server(object):
 
     def get_config(self, ssl=True):
         """
-        Get the configuration of a server
-        :param server: a server object
-        :return: a dictionary of the server configuration
+        Get the configuration of the server
         """
-        return get_config(self, ssl=ssl)
+        conf = get_config(self, ssl=ssl)
+        for key in conf[0]["arguments"]:
+            if key == "Control-agent":
+                for subkey in conf[0]["arguments"]["Control-agent"]:
+                    if subkey == "control-sockets":
+                        for subsubkey in conf[0]["arguments"]["Control-agent"][subkey]:
+                            if subsubkey == "dhcp4":
+                                self.v4_socket = conf[0]["arguments"]["Control-agent"][subkey][subsubkey]["socket-name"]
+                            elif subsubkey == "dhcp6":
+                                self.v6_socket = conf[0]["arguments"]["Control-agent"][subkey][subsubkey]["socket-name"]
+
+
+
     def get_v6_config(self, ssl=True):
         """
-        Get the configuration of a server
-        :param server: a server object
-        :return: a dictionary of the server configuration
+        Get the v6 settings of the server
         """
         return get_v6_config(self, ssl=ssl)
+
+    def get_v4_config(self, ssl=True):
+        """
+        Get the v6 settings of the server
+        """
+        return get_v4_config(self, ssl=ssl)
+
     def save_config(self, ssl=True):
         """
-        Get the configuration of a server
-        :param server: a server object
-        :return: a dictionary of the server configuration
+        Write the configuration to the server
+        :return: the reply from kea
         """
         return save_config(self, ssl=ssl)
+
 
