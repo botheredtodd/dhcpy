@@ -13,6 +13,9 @@ conf = kea_server.get_config(ssl=False)
 # Print the configuration
 print(json.dumps(conf, indent=4))
 
+v6_conf = kea_server.get_v6_config(ssl=False)
+print(json.dumps(v6_conf, indent=4))
+
 # Create a subnet object
 # subnet = Subnet()
 # pool = Pool(subnet="2001:db8:1::/64")

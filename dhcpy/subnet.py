@@ -34,9 +34,11 @@ class Pool(object):
                 raise ValueError("Invalid subnet")
         else:
             if type(subnet) is ipaddress.IPv6Network:
+                print("Setting subnet to v6")
                 self.subnet_type = subnet_type.v6
                 self.subnet = subnet
             elif type(subnet) is ipaddress.IPv4Network:
+                print("Setting subnet to v4")
                 self.subnet_type = subnet_type.v4
                 self.subnet = subnet
             else:
@@ -101,10 +103,11 @@ class Subnet(object):
                         raise ValueError("Pool type does not match subnet type")
                 rets = {}
                 rets["id"] = self.id
-                rets["subnet"] = self.name
                 rets["pools"] = []
                 for pool in self.pools:
                     rets["pools"].append(pool.__dict__())
+                rets["subnet"] = self.name
+
                 return rets
             else:
                 raise ValueError("No pools set")
